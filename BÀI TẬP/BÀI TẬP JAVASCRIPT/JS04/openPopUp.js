@@ -1,0 +1,1 @@
+window.open("https://www.youtube.com/", "myWindow", "width=1000,height=800,top=100,left=200");
