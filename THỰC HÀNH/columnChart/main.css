@@ -1,0 +1,17 @@
+.bar {
+    width: 30px;
+    margin-right: 10px;
+    background-color: #3F87F5;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.create-chart {
+    height: 30px;
+    width: 70px;
+    background-color: #3F87F5;
+    border-radius: 10px;
+}
+.chart-input {
+    width: 200px;
+    height: 30px;
+}
