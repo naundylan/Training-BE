@@ -1,5 +1,6 @@
-html
-  head
-    title  web của Dylan
-  body
-    h1 Hello
+extends layout/default.pug
+include mixins/box-head.pug
+
+block main
+  h1 Trang chủ
+  +box-head("Trang chủ", "Đây là đoạn mô tả của trang chủ")
