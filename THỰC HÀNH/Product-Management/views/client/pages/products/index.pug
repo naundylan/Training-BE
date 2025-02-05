@@ -1,4 +1,20 @@
 extends ../../layouts/default.pug 
+include ../../mixins/box-head.pug
 
 block main
-    h1 Trang danh sách sản phẩm
+    .container.my-3
+        .row
+            .col-12
+                +box-head("Danh sách sản phẩm")
+
+        .row
+            .col-4.mb-3
+                .product-item
+                    .inner-image
+                        img(src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+                        , alt="iPhone 9")
+                    .inner-content
+                        h3.inner-title Nail
+                        .inner-price-new 80$
+                        .inner-price-old 100$
+                        .inner-discount -20%
