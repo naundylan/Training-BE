@@ -1,13 +1,17 @@
 // Config
 const express = require('express')
 require('dotenv').config()
-const route = require("./routes/client/index.route")
 const app = express()
 const port = process.env.PORT
 
 // connect database
 const database = require("./config/database");
 database.connect();
+
+// Routes
+const route = require("./routes/client/index.route")
+const routeAdmin = require("./routes/admin/index.route")
+
 
 // Database Model
 // const Product = mongoose.model('Product', {
@@ -32,6 +36,7 @@ app.set('view engine', 'pug')
 app.use(express.static('public'))
 
 // Routes
+routeAdmin(app);
 route(app);
 
 // Test
