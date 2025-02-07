@@ -12,6 +12,8 @@ database.connect();
 const route = require("./routes/client/index.route")
 const routeAdmin = require("./routes/admin/index.route")
 
+// require config
+const systemConfig = require("./config/system")
 
 // Database Model
 // const Product = mongoose.model('Product', {
@@ -26,7 +28,8 @@ const routeAdmin = require("./routes/admin/index.route")
 //   deleted: Boolean
 // });
 
-
+// App Local Variables
+app.locals.prefixAdmin = systemConfig.prefixAdmin
 
 // Set pug
 app.set('views', './views')
