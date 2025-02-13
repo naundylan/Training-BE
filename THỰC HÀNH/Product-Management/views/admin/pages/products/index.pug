@@ -2,52 +2,47 @@ extends ../../layouts/default.pug
 block main
     h1= pageTitle
 
-    table.table.table-hover.table-sm
-        thead
-            tr
-                th STT
-                th Hình ảnh
-                th Tiêu đề
-                th Giá
-                th Trạng thái
-                th Hành động
-        tbody
-        
-            each item, index in products
-                tr
-                    td #{index+1}
-                    td
-                        img(
-                            src= item.thumbnail
-                            alt= item.title
-                            width="100px"
-                            height="auto"
-                        )
-                    td #{item.title}
-                    td #{item.price}$
-                    td
-                        if(item.status == "active")
-                            a(href="#" class="badge badge-success") Hoạt động
-                        else if(item.status == "inactive")
-                            a(href="#" class="badge badge-danger") Dừng hoạt động
-                    td
-                        button(class="btn btn-warning btn-sm") Sửa
-                        button(class="btn btn-danger btn-sm ml-1") Xóa
+    .card.mb-3
+        .card-header Bộ lọc và Tìm kiếm
+        .card-body
+            each item in filterStatus
+                button(
+                    class=`btn btn-sm ml-1 btn-outline-success ${item.class}` button-status=item.status
+                    ) #{item.name}
+
+    .card.mb-3
+        .card-header Bộ lọc và Tìm kiếm
+            .card-body
+                table.table.table-hover.table-sm
+                    thead
+                        tr
+                            th STT
+                            th Hình ảnh
+                            th Tiêu đề
+                            th Giá
+                            th Trạng thái
+                            th Hành động
+                    tbody
+                    
+                        each item, index in products
+                            tr
+                                td #{index+1}
+                                td
+                                    img(
+                                        src= item.thumbnail
+                                        alt= item.title
+                                        width="100px"
+                                        height="auto"
+                                    )
+                                td #{item.title}
+                                td #{item.price}$
+                                td
+                                    if(item.status == "active")
+                                        a(href="#" class="badge text-bg-success") Hoạt động
+                                    else if(item.status == "inactive")
+                                        a(href="#" class="badge text-bg-danger") Dừng hoạt động
+                                td
+                                    button(class="btn btn-warning btn-sm") Sửa
+                                    button(class="btn btn-danger btn-sm ml-1") Xóa
 
 
-            //- tr
-            //-     td 2
-            //-     td
-            //-         img(
-            //-             src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
-            //-             alt="Sản phẩm 2"
-            //-             width="100px"
-            //-             height="auto"
-            //-         )
-            //-     td Sản phẩm 2
-            //-     td 150$
-            //-     td
-            //-         a(href="#" class="badge badge-danger") Dừng hoạt động
-            //-     td
-            //-         button(class="btn btn-warning btn-sm") Sửa
-            //-         button(class="btn btn-danger btn-sm ml-1") Xóa
